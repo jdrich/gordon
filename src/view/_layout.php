@@ -12,9 +12,7 @@
   </ol>
   
   <div class="container">
-    <div class="panel">
       <?php echo $content; ?>
-    </div>
   </div>
     <?php require '_footer.php'; ?>
   </body>
