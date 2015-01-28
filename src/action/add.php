@@ -20,6 +20,8 @@ if(isset($_POST['title'])) {
   header('Location: list');
   exit();
 } else {
+  $form_action = 'add';
+
   ob_start();
   require 'view/add.php';
   $content = ob_get_clean();
