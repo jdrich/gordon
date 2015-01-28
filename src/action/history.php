@@ -1,0 +1,3 @@
+<?php
+
+require 'submit.php';

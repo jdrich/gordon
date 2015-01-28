@@ -35,14 +35,14 @@
  </head>
  <tbody>
    <?php foreach($success as $slug => $answers): ?>
-     <?php $title = json_decode(file_get_contents('../data/' . $slug), true)['title']; ?>
+     <?php $card = json_decode(file_get_contents('../data/' . $slug), true)['title']; ?>
      <tr>
        <?php $knew = array_sum(array_values($answers)); ?>
-       <td><a href="edit?card=<?php echo urlencode($slug); ?>"><?php echo $title; ?></a></td>
+       <td><a href="edit?card=<?php echo urlencode($slug); ?>"><?php echo htmlspecialchars($card); ?></a></td>
        <td><?php echo $knew; ?></td>
        <td><?php echo count($answers) - $knew; ?></td>
-       <td><?php echo count($test); ?></td>
-       <td><?php echo count($test); ?></td>
+       <td><?php echo count($answers); ?></td>
+       <td><?php echo count($answers); ?></td>
      </tr>
    <?php endforeach; ?>
  </tbody>
