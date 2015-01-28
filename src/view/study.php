@@ -1,5 +1,5 @@
 <?php $side = rand(0,1) ? 'front' : 'back'; ?>
-<h2 style="display: none"><?php echo $card['title']; ?></h2>
+<h4 style="display: none"><?php echo $card['title']; ?></h4>
 <div class="side front panel panel-default" style="<?php echo $side == 'front' ? '' : 'display: none'; ?>">
   <p class="panel-body">
     <?php echo htmlspecialchars($card['front']); ?>
@@ -15,6 +15,7 @@
 <script>
   jQuery('.flip').click(function() {
     jQuery('.side').toggle();
+    jQuery('h4').show();
  
     return false;
   });
