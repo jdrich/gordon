@@ -1,3 +1,12 @@
+<?php
+
+require_once '../vendor/Parsedown.php';
+
+$pd = new Parsedown();
+$pd->setMarkupEscaped(true);
+
+?>
+
 <div>&nbsp;<strong class="pull-right">
 <span class="text-success"><?php echo $correct; ?></span> /
 <span class="text-danger"><?php echo $answered-$correct; ?></span> /
@@ -10,14 +19,14 @@
 <input type="hidden" name="answer" value="" />
 <h4 style="display: none"><?php echo $card['title']; ?></h4>
 <div class="side front panel panel-default" style="<?php echo $side == 'front' ? '' : 'display: none'; ?>">
-  <p class="panel-body">
-    <?php echo htmlspecialchars($card['front']); ?>
-  </p>
+  <div class="panel-body">
+    <?php echo $pd->text($card['front']); ?>
+  </div>
 </div>
 <div class="side back panel panel-default" style="<?php echo $side == 'back' ? '' : 'display: none'; ?>">
-  <p class="panel-body">
-    <?php echo htmlspecialchars($card['back']); ?>
-  </p>
+  <div class="panel-body">
+    <?php echo $pd->text($card['back']); ?>
+  </div>
 </div>
 <button class="display btn btn-info">Show</button>
 <button style="display:none;" class="answer knew btn btn-success">Knew</button>
